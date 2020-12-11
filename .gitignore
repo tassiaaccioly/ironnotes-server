@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# IMPORTANTE!!! O .env está comentado por questões didáticas, descomentar antes de fazer o primeiro commit!!!!
+# .env
