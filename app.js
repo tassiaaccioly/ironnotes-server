@@ -14,6 +14,9 @@ require("./config/passport.config")(app);
 const userRouter = require("./routes/user.routes");
 app.use("/api", userRouter);
 
+const pageRoutes = require("./routes/page.routes.js");
+app.use("/api", pageRoutes);
+
 app.listen(process.env.PORT, () =>
   console.log(`Server up and running at port ${process.env.PORT}`)
 );
