@@ -4,30 +4,29 @@ const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
 
-const User = require("../models/User");
-
-// REST => REpresentational State Transfer
-
-// HTTP é stateless
-
-// RESTful é uma API que segue todas as regras do REST
+const User = require("../models/UserModel");
 
 router.post("/signup", async (req, res) => {
   // 1. Extrair o email, nome e senha do usuario do corpo da requisição
 
-  const { name, email, password } = req.body;
+  const { username, email, cohort, password } = req.body;
 
   // 2. Validar o email e a senha
 
   const errors = {};
   // Validacao de nome de usuario: é obrigatório, tem que ser do tipo string e não pode ter mais de 50 caracteres
-  if (!name || typeof name !== "string" || name.length > 50) {
-    errors.name = "Username is required and should be 50 characters max.";
+  if (!username || typeof username !== "string" || username.length > 50) {
+    errors.username = "Username is required and should be 50 characters max.";
   }
 
   // Tem que ser um email valido, é obrigatório
   if (!email || !email.match(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/)) {
     errors.email = "Email is required and should be a valid email address";
+  }
+
+  //Tem que ser número no cohort, é obrigatório
+  if (!cohort || !cohort.match(/\d+/)) {
+    errors.cohort = "Cohort needs to be a valid Ironhack Cohort number";
   }
 
   // Senha é obrigatória, precisa ter no mínimo 8 caracteres, precisa ter letras maiúsculas, minúsculas, números e caracteres especiais
@@ -58,7 +57,7 @@ router.post("/signup", async (req, res) => {
     const passwordHash = await bcrypt.hash(password, salt);
 
     // 4. Salvar o email e a senha criptografada no banco
-    const result = await User.create({ email, name, passwordHash });
+    const result = await User.create({ email, username, passwordHash });
 
     console.log(result);
 
@@ -96,8 +95,8 @@ router.post("/login", (req, res, next) => {
         return next(err);
       }
 
-      const { name, email, _id } = user;
-      const userObj = { name, email, _id };
+      const { name, email, _id, cohort } = user;
+      const userObj = { name, email, _id, cohort };
       const token = jwt.sign({ user: userObj }, process.env.TOKEN_SIGN_SECRET);
 
       return res.status(200).json({ user: userObj, token });
