@@ -57,7 +57,7 @@ router.post("/signup", async (req, res) => {
     const passwordHash = await bcrypt.hash(password, salt);
 
     // 4. Salvar o email e a senha criptografada no banco
-    const result = await User.create({ email, username, passwordHash });
+    const result = await User.create({ email, username, passwordHash, cohort });
 
     console.log(result);
 
@@ -95,8 +95,8 @@ router.post("/login", (req, res, next) => {
         return next(err);
       }
 
-      const { name, email, _id, cohort } = user;
-      const userObj = { name, email, _id, cohort };
+      const { username, email, _id, cohort } = user;
+      const userObj = { username, email, _id, cohort };
       const token = jwt.sign({ user: userObj }, process.env.TOKEN_SIGN_SECRET);
 
       return res.status(200).json({ user: userObj, token });
