@@ -2,7 +2,7 @@
 
 **This is the server side of our IronNotes Project!**
 
-`IronNotes is a collective notebook for students at Ironhack Bootcamps to keep texts, notes, links, quotes and any important informations that might arise in class.`
+IronNotes is a collective notebook for students at Ironhack Bootcamps to keep texts, notes, links, quotes and any important informations that might arise in class.
 
 See the online server [here](ec2-3-131-169-218.us-east-2.compute.amazonaws.com) (all paths are protected)
 
