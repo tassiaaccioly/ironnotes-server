@@ -1,0 +1,16 @@
+* {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  background-color: #2a2e2f;
+  color: white;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  margin: 100px 40px 40px;
+}

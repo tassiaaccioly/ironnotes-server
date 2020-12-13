@@ -11,6 +11,14 @@ app.use(express.json());
 app.use(cors({ origin: "*" }));
 require("./config/passport.config")(app);
 
+app.get("*", (req, res, next) => {
+  const hostUrl = req.originalUrl;
+  if (!hostUrl.includes("/api")) {
+    return res.sendFile(path.join(publicPath, "index.html"));
+  }
+  return next();
+});
+
 const userRouter = require("./routes/user.routes");
 app.use("/api", userRouter);
 
