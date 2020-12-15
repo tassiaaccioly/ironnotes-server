@@ -164,11 +164,11 @@ router.patch(
 
 //Delete Profile
 router.delete(
-  "/profile/delete",
+  "/profile/:id",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      const id = req.user._id;
+      const { id } = req.params;
 
       const result = await User.findOneAndDelete({ _id: id });
 

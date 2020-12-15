@@ -2,7 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-require("./config/db.config")();
 
 const app = express();
 
@@ -13,6 +12,7 @@ app.use(express.static(publicPath));
 // Não esquecer de criar variável de ambiente com o endereço do seu app React (local ou deployado no Netlify)
 
 app.use(cors({ origin: "*" }));
+require("./config/db.config")();
 require("./config/passport.config")(app);
 
 app.get("*", (req, res, next) => {

@@ -17,10 +17,28 @@ router.post(
       const tags = req.body.tags.split(",");
 
       //Creating page in database with user's cohort
+      if (tags) {
+        const result = await Page.create({
+          ...req.body,
+          creatorUser: req.user._id,
+          tags: tags,
+          cohort: cohort,
+        });
+
+        const userResult = await User.findOneAndUpdate(
+          { _id: req.user._id },
+          { $push: { pagesCreated: result._id } },
+          { new: true }
+        );
+
+        return res.status(201).json({ result, userResult });
+      }
+      const tag = [...req.body.tags];
+
       const result = await Page.create({
         ...req.body,
         creatorUser: req.user._id,
-        tags: tags,
+        tags: tag,
         cohort: cohort,
       });
 
@@ -58,7 +76,7 @@ router.get(
 
 //cRud GET PAGES LIST (ONLY TITLES)
 router.get(
-  "/pages/titles",
+  "/titles",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
@@ -77,11 +95,15 @@ router.get(
 );
 
 //CRud GET PAGE
-router.get("/pages/:id"),
+router.get(
+  "/pages/:id",
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
+      console.log(req);
       const { id } = req.params;
+
+      console.log(id);
 
       const page = await Page.findOne({ _id: id });
 
@@ -94,7 +116,8 @@ router.get("/pages/:id"),
       console.error(err);
       return res.status(500).json({ msg: err });
     }
-  };
+  }
+);
 
 //crUd EDIT PAGE
 router.patch(
