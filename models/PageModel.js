@@ -19,9 +19,6 @@ const PageSchema = new Schema(
   }
 );
 
-//use book.routes.js to do the creator/editor push thingy
-//Page.find({cohort: req.user.cohort})
+const PageModel = model("Page", PageSchema);
 
-const UserModel = model("Page", PageSchema);
-
-module.exports = UserModel;
+module.exports = PageModel;

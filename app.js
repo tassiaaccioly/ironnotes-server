@@ -9,6 +9,7 @@ const app = express();
 const publicPath = path.join(__dirname, "public");
 
 app.use(express.json());
+app.use(express.static(publicPath));
 // Não esquecer de criar variável de ambiente com o endereço do seu app React (local ou deployado no Netlify)
 
 app.use(cors({ origin: "*" }));

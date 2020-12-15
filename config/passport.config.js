@@ -26,14 +26,14 @@ function configurePassport(app) {
           // Se o usuario não foi encontrado, retorne uma mensagem de erro
           if (!foundUser) {
             return done(null, false, {
-              message: "This email is not registered yet",
+              message: "Email or password is incorrect.",
             });
           }
 
           // Se a senha que o usuário está enviando na tentativa de login não bater com a senha salva no banco, retorne uma mensagem de erro
           if (!bcrypt.compareSync(password, foundUser.passwordHash)) {
             return done(null, false, {
-              message: "Incorrect password",
+              message: "Email or password is incorrect.",
             });
           }
 
