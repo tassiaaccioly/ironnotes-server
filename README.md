@@ -1,4 +1,4 @@
-![image](./public/images/LogoDark.svg)
+![image](https://res.cloudinary.com/tassiaaccioly/image/upload/v1608069202/ironnotes/LogoDark_ifzf9i.svg)
 
 **This is the server side of our IronNotes Project!**
 
