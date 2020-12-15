@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
+const uploader = require("../config/cloudinary.config");
 
 const User = require("../models/UserModel");
 
