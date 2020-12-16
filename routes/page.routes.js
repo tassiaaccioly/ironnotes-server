@@ -64,7 +64,9 @@ router.get(
   async (req, res) => {
     try {
       //return only the pages from the user cohort
-      const result = await Page.find({ cohort: req.user.cohort });
+      const result = await Page.find({ cohort: req.user.cohort })
+        .populate("creatorUser")
+        .populate("editorUser");
 
       return res.status(200).json(result);
     } catch (err) {
