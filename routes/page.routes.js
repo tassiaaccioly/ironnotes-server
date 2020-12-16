@@ -105,7 +105,9 @@ router.get(
 
       console.log(id);
 
-      const page = await Page.findOne({ _id: id });
+      const page = await (await Page.findOne({ _id: id }))
+        .populate("creatorUser")
+        .populate("editorUser");
 
       if (page) {
         return res.status(200).json(page);

@@ -121,7 +121,9 @@ router.get(
     try {
       console.log(req.user);
 
-      const result = await User.findOne({ _id: req.user._id });
+      const result = await User.findOne({ _id: req.user._id }).populate(
+        "pagesCreated"
+      );
 
       return res
         .status(200)
