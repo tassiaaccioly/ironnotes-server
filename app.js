@@ -26,8 +26,11 @@ app.get("*", (req, res, next) => {
 const userRouter = require("./routes/user.routes");
 app.use("/api", userRouter);
 
-const pageRoutes = require("./routes/page.routes");
-app.use("/api", pageRoutes);
+const pageRouter = require("./routes/page.routes");
+app.use("/api", pageRouter);
+
+const quotesRouter = require("./routes/quote.routes");
+app.use("/api", quotesRouter);
 
 app.listen(process.env.PORT, () =>
   console.log(`Server up and running at port ${process.env.PORT}`)

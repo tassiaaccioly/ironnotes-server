@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const passport = require("passport");
 
-const User = require("../models/UserModel");
+const Quote = require("../models/QuoteModel");
 
 router.post(
   "/quote",
@@ -17,7 +17,7 @@ router.post(
         cohort: cohort,
       });
 
-      return res.status(201).json({ result });
+      return res.status(201).json(result);
     } catch (err) {
       console.error(err);
       return res.status(500).json({ msg: err });
@@ -37,7 +37,9 @@ router.get(
       if (allQuotes) {
         const randomNum = Math.round(Math.random() * allQuotes.length);
 
-        return res.status(200).json(allQuotes[randomNum]);
+        const result = allQuotes[randomNum];
+
+        return res.status(200).json(result);
       }
 
       return res
@@ -49,3 +51,5 @@ router.get(
     }
   }
 );
+
+module.exports = router;
