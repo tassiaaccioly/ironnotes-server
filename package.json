@@ -1,12 +1,17 @@
 {
   "name": "project3-database",
   "version": "1.0.0",
+  "private": true,
   "description": "Project 3",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "dev": "nodemon ."
+    "echotest": "echo \"Error: no test specified\" && exit 1",
+    "nodestart": "node app.js",
+    "dev": "nodemon .",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -19,6 +24,24 @@
     "url": "https://github.com/tassiaaccioly/project3-database/issues"
   },
   "homepage": "https://github.com/tassiaaccioly/project3-database#readme",
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.23.0",
@@ -32,6 +55,21 @@
     "nodemon": "^2.0.6",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.5.0",
+    "@uiw/react-md-editor": "^2.0.3",
+    "axios": "^0.21.0",
+    "bootstrap": "^4.5.3",
+    "marked": "^1.2.6",
+    "medium-editor": "^5.23.3",
+    "react": "^17.0.1",
+    "react-bootstrap": "^1.4.0",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1",
+    "styled-components": "^5.2.1",
+    "web-vitals": "^0.2.4"
   }
 }

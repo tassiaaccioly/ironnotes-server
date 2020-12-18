@@ -1,0 +1,27 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: 1rem 0;
+}
+
+.form-group label {
+  width: 100%;
+  margin: 0 0 8px;
+  font-size: 1.5em;
+}
+
+.sign-input {
+  height: 30px;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  padding: 0.2rem 1rem;
+}
+
+.invalid-feedback {
+  color: rgb(241, 57, 57);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 5px;
+}

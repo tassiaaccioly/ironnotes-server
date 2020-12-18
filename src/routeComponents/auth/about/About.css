@@ -1,0 +1,63 @@
+h1 {
+  margin-top: 20px;
+}
+
+.about-container {
+  width: 90vw;
+  margin: 0 auto;
+  font-size: clamp(1.3rem, 2vw, 2rem);
+  text-align: center;
+}
+
+.about-container p {
+  margin: 0 auto;
+  width: 70vw;
+}
+
+.about-container hr {
+  border-bottom: clamp(3px, 1%, 5px) solid #0098b6;
+  width: 70vw;
+  margin: 10px auto 10px;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 20px 0;
+}
+
+.profile-container .infos-container {
+  margin: 20px 2rem;
+  width: 40vw;
+}
+
+.infos-container .avatar img {
+  width: clamp(70px, 7vw, 70px);
+}
+
+.infos-container h4 {
+  font-size: clamp(1.5rem, 2vw, 3rem);
+  margin: 10px 0 10px 0;
+}
+
+.infos-container p {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.socials {
+  margin: 10px;
+}
+
+.socialicon {
+  margin: 0 10px;
+}
+
+.infos-container .socials img {
+  width: clamp(40px, 4vw, 40px);
+  margin-top: 10px;
+}

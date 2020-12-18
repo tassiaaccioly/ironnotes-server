@@ -1,0 +1,145 @@
+.container {
+  background-color: #fbfafa;
+  margin: auto;
+  min-height: 600px;
+  width: 70%;
+  margin-top: 3%;
+  border-radius: 2%;
+  display: flex;
+}
+
+.pages-list {
+  margin-left: 5%;
+  margin-top: 5%;
+  width: 30vw;
+}
+
+.infos-profile p {
+  text-align: left;
+  font-size: 1.8rem;
+  color: #2a2e2f;
+  margin: 15px 0;
+}
+
+.pages-list h1 {
+  text-align: center;
+  font-size: 4.5rem;
+  color: #2a2e2f;
+}
+
+.pages-list hr {
+  margin-bottom: 10%;
+  width: 100%;
+  height: 5px;
+  border: none;
+  background-color: #2a2e2f;
+}
+
+.avatar-box {
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 7%;
+  margin-left: 5%;
+}
+
+.infos-profile .pages {
+  margin-top: 10%;
+  color: #2a2e2f;
+  font-size: 1.8rem;
+}
+
+.infos-profile thead {
+  text-align: left;
+  line-height: 2.5;
+}
+
+.table-elem a {
+  color: #2a2e2f;
+  font-size: 1.8rem;
+  font-weight: normal;
+}
+
+/* DELETE BUTTON */
+
+.delete-button {
+  width: 130px;
+  border: none;
+  margin: 1rem auto;
+  background-color: #32c3ff;
+  padding: 1.2rem 2rem;
+  border-radius: 0.8rem;
+  color: #fbfafa;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #fbfafa;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+a:hover {
+  animation: HoverA 0.5s ease forwards 1;
+}
+
+.delete-button:hover {
+  animation: Hover 0.5s ease forwards 1;
+}
+
+@keyframes HoverA {
+  from {
+    color: #fbfafa;
+  }
+  to {
+    color: #2a2e2f;
+  }
+}
+
+@keyframes Hover {
+  from {
+    background-color: #32c3ff;
+    box-shadow: 0 0 0 0;
+    color: #fbfafa;
+  }
+  to {
+    background-color: red;
+    color: white;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+
+/* EDIT BUTTON */
+
+.edit-button {
+  width: 130px;
+  border: none;
+  margin: 1rem auto;
+  margin-top: 25%;
+  background-color: #32c3ff;
+  padding: 1.2rem 2rem;
+  border-radius: 0.8rem;
+  color: white;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.edit-button:hover,
+.edit-button:focus {
+  background-color: #32c3ff;
+  color: white;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* EDIT PROFILE */
+
+.edit-profile {
+  display: flex;
+  flex-direction: column;
+  color: #2a2e2f;
+}

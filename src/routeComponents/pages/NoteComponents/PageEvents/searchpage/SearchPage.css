@@ -1,0 +1,67 @@
+#SearchBarPopUpOne {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  max-height: 100px;
+}
+
+.searchbar-input {
+  width: 90%;
+  margin: 10% auto 3%;
+  display: flex;
+  justify-content: center;
+}
+
+#searchbar-input {
+  width: 65%;
+  margin: 0 auto;
+  border: none;
+  border: 1px solid #2a2e2f;
+  height: 30px;
+  border-radius: 6px;
+  padding: 0.2rem 1rem;
+  z-index: 205;
+}
+
+.check-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchtable-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.search-table {
+  font-size: 1.5rem;
+  line-height: 5rem;
+  color: #2a2e2f;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-top: 50px;
+}
+
+.search-table .table-link {
+  font-size: 1.5rem;
+  line-height: 5rem;
+  color: #2a2e2f;
+}
+
+.search-table thead {
+  background-color: #2a2e2f;
+  color: #fbfafa;
+}
+
+.search-table th,
+.search-table td {
+  border-bottom: 2px solid #2a2e2f;
+  overflow: auto;
+  min-width: 250px;
+  padding: 0 20px;
+}

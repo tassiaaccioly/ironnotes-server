@@ -1,0 +1,48 @@
+.blue-button {
+  border: none;
+  margin: 1rem auto;
+  background-color: #32c3ff;
+  padding: 1.2rem 3rem;
+  border-radius: 0.8rem;
+  color: #fbfafa;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #fbfafa;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+a:hover {
+  animation: onHoverA 0.5s ease forwards 1;
+}
+
+.blue-button:hover {
+  animation: onHover 0.5s ease forwards 1;
+}
+
+@keyframes onHoverA {
+  from {
+    color: #fbfafa;
+  }
+  to {
+    color: #2a2e2f;
+  }
+}
+
+@keyframes onHover {
+  from {
+    background-color: #32c3ff;
+    box-shadow: 0 0 0 0;
+    color: #fbfafa;
+  }
+  to {
+    background-color: #fbfafa;
+    color: #2a2e2f;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2),
+      0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}

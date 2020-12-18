@@ -1,0 +1,27 @@
+.login {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  color: white;
+  font-size: 1em;
+}
+
+.formBox {
+  margin: auto;
+  margin-top: 20px;
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-control {
+  width: 70%;
+  height: 30px;
+}

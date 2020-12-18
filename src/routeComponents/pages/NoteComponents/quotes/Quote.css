@@ -1,0 +1,38 @@
+.MODAL {
+  z-index: 250;
+}
+
+#QuotesPopUpOne {
+  color: black;
+  font-size: 300%;
+  text-align: center;
+}
+
+#modal {
+  margin-top: 20%;
+}
+
+#author {
+    margin-top: 2%;
+}
+
+#addForm {
+  color: black;
+  font-size: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+#text {
+  margin-top: 15%;
+}
+
+#bottom {
+  margin-top: 3%;
+}
+
+#buttons {
+  display: flex;
+  flex-direction: row;
+  margin: 0 30% 0 30%;
+}

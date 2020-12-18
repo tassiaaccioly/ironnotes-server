@@ -1,0 +1,16 @@
+.checkbox-input {
+  z-index: 100;
+}
+
+.checkinput-container {
+  max-width: 13%;
+  display: flex;
+  align-items: center;
+  margin: 0 1rem;
+}
+
+.checkinput-container label {
+  font-size: 1.5rem;
+  color: #2a2e2f;
+  margin: 0.5rem;
+}

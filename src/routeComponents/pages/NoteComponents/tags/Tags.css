@@ -1,0 +1,29 @@
+.tag-btn {
+  border: none;
+  margin: 0.5rem;
+  background-color: #32c3ff;
+  padding: 0.3rem 1rem;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fbfafa;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.tag-btn:hover {
+  animation: tagHover 0.5s ease forwards 1;
+}
+
+@keyframes tagHover {
+  from {
+    background-color: #32c3ff;
+    box-shadow: 0 0 0 0;
+    color: #fbfafa;
+  }
+  to {
+    background-color: #fbfafa;
+    color: #2a2e2f;
+  }
+}
