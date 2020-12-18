@@ -143,11 +143,11 @@ router.patch(
     try {
       const { id } = req.params;
 
-      const { username } = req.body;
+      const { username, avatar, email } = req.body;
 
       const result = await User.findOneAndUpdate(
         { _id: id },
-        { $set: { username: username } },
+        { $set: { username: username, avatar: avatar, email: email } },
         { new: true }
       );
 

@@ -14,7 +14,7 @@ router.post(
       const { cohort } = req.user;
 
       //spliting tags into arrays
-      const tags = req.body.tags.split(",");
+      const tags = req.body.tags.toLowerCase().split(",");
 
       //Creating page in database with user's cohort
       if (tags) {
@@ -102,10 +102,7 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   async (req, res) => {
     try {
-      console.log(req);
       const { id } = req.params;
-
-      console.log(id);
 
       const page = await (await Page.findOne({ _id: id }))
         .populate("creatorUser")
@@ -139,7 +136,7 @@ router.patch(
       if (req.user.cohort === pageId.cohort) {
         const userId = req.user._id;
 
-        const tags = req.body.tags.split(",");
+        const tags = req.body.tags.toLowerCase().split(",");
 
         //find the page by id and update from req.body, return the updated page
         const page = await Page.findOneAndUpdate(
