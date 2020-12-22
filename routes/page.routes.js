@@ -136,7 +136,11 @@ router.patch(
       if (req.user.cohort === pageId.cohort) {
         const userId = req.user._id;
 
-        const tags = req.body.tags.split(",").map((tag) => tag.toLowerCase());
+        if (typeof req.body.tags === "array") {
+          const tags = req.body.tags.split(",").map((tag) => tag.toLowerCase());
+        }
+
+        const tags = req.body.tags;
 
         //find the page by id and update from req.body, return the updated page
         const page = await Page.findOneAndUpdate(
