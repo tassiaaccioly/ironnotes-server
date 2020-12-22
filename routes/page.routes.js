@@ -136,8 +136,8 @@ router.patch(
       if (req.user.cohort === pageId.cohort) {
         const userId = req.user._id;
 
-        if (typeof req.body.tags === "array") {
-          const tags = req.body.tags.split(",").map((tag) => tag.toLowerCase());
+        if (typeof req.body.tags !== "object") {
+          const tags = req.body.tags.toLowerCase().split(",");
         }
 
         const tags = req.body.tags;
