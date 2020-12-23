@@ -1,0 +1,2 @@
+(this["webpackJsonpproject3-app"]=this["webpackJsonpproject3-app"]||[]).push([[51],{145:function(e,a){Prism.languages.brainfuck={pointer:{pattern:/<|>/,alias:"keyword"},increment:{pattern:/\+/,alias:"inserted"},decrement:{pattern:/-/,alias:"deleted"},branching:{pattern:/\[|\]/,alias:"important"},operator:/[.,]/,comment:/\S+/}}}]);
+//# sourceMappingURL=51.3c35c15d.chunk.js.map
