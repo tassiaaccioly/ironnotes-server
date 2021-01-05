@@ -4,7 +4,9 @@
 
 `IronNotes is a collective notebook for students at Ironhack Bootcamps to keep texts, notes, links, quotes and any important informations that might arise in class.`
 
-See the client app repository [here](https://github.com/tassiaaccioly/ironnotes-client) 
+See the deployed site [here](https://ironnotes.herokuapp.com/)
+
+See the client app repository [here](https://github.com/tassiaaccioly/ironnotes-client)
 
 See our slide presentation [here](https://docs.google.com/presentation/d/1eSEAhN5He4dko4dtNfNvGvgP81leUio723bO6JyHobk/edit?usp=sharing)
 
