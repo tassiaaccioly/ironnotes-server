@@ -3,8 +3,18 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
+const uploader = require("../config/cloudinary.config");
 
 const User = require("../models/UserModel");
+
+//Files Upload (Avatar)
+router.post("/file-upload", uploader.single("avatar"), (req, res) => {
+  if (!req.file) {
+    return res.status(500).json({ msg: "No file uploaded!" });
+  }
+
+  return res.status(200).json({ fileUrl: req.file.secure_url });
+});
 
 router.post("/signup", async (req, res) => {
   // 1. Extrair o email, nome e senha do usuario do corpo da requisição
@@ -66,9 +76,9 @@ router.post("/signup", async (req, res) => {
     console.error(err);
     // Mensagem de erro para exibir erros de validacao do Schema do Mongoose
     if (err instanceof mongoose.Error.ValidationError) {
-      res.status(400).json({ error: err.message });
+      return res.status(400).json({ error: err.message });
     } else if (err.code === 11000) {
-      res.status(400).json({
+      return res.status(400).json({
         error:
           "Name and email need to be unique. Either username or email is already used.",
       });
@@ -111,11 +121,60 @@ router.get(
     try {
       console.log(req.user);
 
-      const result = await User.findOne({ _id: req.user._id });
+      const result = await User.findOne({ _id: req.user._id }).populate(
+        "pagesCreated"
+      );
 
-      res
+      return res
         .status(200)
         .json({ message: "This is a protected route", user: result });
+    } catch (err) {
+      console.error(err);
+      return res.status(500).json({ msg: err });
+    }
+  }
+);
+
+//Edit Profile
+router.patch(
+  "/profile/:id",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      const { id } = req.params;
+
+      const { username, avatar, email } = req.body;
+
+      const result = await User.findOneAndUpdate(
+        { _id: id },
+        { $set: { username: username, avatar: avatar, email: email } },
+        { new: true }
+      );
+
+      if (result) {
+        return res.status(200).json({ result });
+      }
+      return res
+        .status(418)
+        .json({ msg: "I'm a teapot. I don't know any users." });
+    } catch (err) {
+      console.error(err);
+      return res.status(500).json({ msg: err });
+    }
+  }
+);
+
+//Delete Profile
+router.delete(
+  "/profile/:id",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      const { id } = req.params;
+
+      const result = await User.findOneAndDelete({ _id: id });
+
+      return res.status(204).json({});
     } catch (err) {
       console.error(err);
       return res.status(500).json({ msg: err });

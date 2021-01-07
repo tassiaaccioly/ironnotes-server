@@ -1,14 +1,16 @@
-#IronNotes
+![image](https://res.cloudinary.com/tassiaaccioly/image/upload/v1608069202/ironnotes/LogoDark_ifzf9i.svg)
 
 **This is the server side of our IronNotes Project!**
 
-IronNotes is a collective notebook for students at Ironhack Bootcamps to keep texts, notes, links, quotes and any important informations that might arise in class.
+`IronNotes is a collective notebook for students at Ironhack Bootcamps to keep texts, notes, links, quotes and any important informations that might arise in class.`
 
-See the online server [here](ec2-3-131-169-218.us-east-2.compute.amazonaws.com) (all paths are protected)
+See the deployed site [here](https://ironnotes.herokuapp.com/)
 
-See the client repository [here](https://github.com/tassiaaccioly/ironnotes-client)
+See the client app repository [here](https://github.com/tassiaaccioly/ironnotes-client)
 
-People working on this project:
+See our slide presentation [here](https://docs.google.com/presentation/d/1eSEAhN5He4dko4dtNfNvGvgP81leUio723bO6JyHobk/edit?usp=sharing)
+
+This project's authors:
 
 - [Tassia Accioly](https://github.com/tassiaaccioly)
 - [Juliana Mattar](https://github.com/JulianaMattar)
