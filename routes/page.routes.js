@@ -13,12 +13,6 @@ router.post(
       //deestructuring user's cohort
       const { cohort } = req.user;
 
-      //spliting tags into arrays
-      // const tags = req.body.tags
-      //   .toLowerCase()
-      //   .split(",")
-      //   .map((tag) => tag.trim());
-
       //Creating page in database with user's cohort
       const result = await Page.create({
         ...req.body,
