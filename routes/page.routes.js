@@ -13,32 +13,10 @@ router.post(
       //deestructuring user's cohort
       const { cohort } = req.user;
 
-      //spliting tags into arrays
-      const tags = req.body.tags.toLowerCase().split(",");
-
       //Creating page in database with user's cohort
-      if (tags) {
-        const result = await Page.create({
-          ...req.body,
-          creatorUser: req.user._id,
-          tags: tags,
-          cohort: cohort,
-        });
-
-        const userResult = await User.findOneAndUpdate(
-          { _id: req.user._id },
-          { $push: { pagesCreated: result._id } },
-          { new: true }
-        );
-
-        return res.status(201).json({ result, userResult });
-      }
-      const tag = [...req.body.tags];
-
       const result = await Page.create({
         ...req.body,
         creatorUser: req.user._id,
-        tags: tag,
         cohort: cohort,
       });
 
@@ -104,7 +82,7 @@ router.get(
     try {
       const { id } = req.params;
 
-      const page = await (await Page.findOne({ _id: id }))
+      const page = await Page.findOne({ _id: id })
         .populate("creatorUser")
         .populate("editorUser");
 
@@ -163,6 +141,31 @@ router.patch(
     } catch (err) {
       console.error(err);
       return res.status(500).json({ msg: err });
+    }
+  }
+);
+
+//cRud GET TAG
+router.get(
+  "/tag/:tag",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      //get tag name from request
+      const { tag } = req.params;
+
+      const tags = await Page.find({ tags: { $in: [`${tag}`] } })
+        .populate("creatorUser")
+        .populate("editorUser");
+
+      if (tags) {
+        res.status(200).json(tags);
+      }
+
+      res.status(404).json({ msg: "Your Princess is in another castle" });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ msg: err });
     }
   }
 );
