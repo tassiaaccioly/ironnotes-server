@@ -137,7 +137,7 @@ router.patch(
 
       return res
         .status(401)
-        .json({ msg: "You don't have clearance to edit this page." });
+        .json({ msg: "DENIED. You don't have clearance to edit this page." });
     } catch (err) {
       console.error(err);
       return res.status(500).json({ msg: err });
@@ -170,6 +170,7 @@ router.get(
   }
 );
 
+//cruD DELETE Page
 router.delete(
   "/pages/:id",
   passport.authenticate("jwt", { session: false }),
