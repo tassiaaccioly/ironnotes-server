@@ -1,2 +1,0 @@
-(this["webpackJsonpproject3-app"]=this["webpackJsonpproject3-app"]||[]).push([[169],{263:function(a,e){Prism.languages.hpkp={directive:{pattern:/\b(?:(?:includeSubDomains|preload|strict)(?: |;)|pin-sha256="[a-zA-Z\d+=/]+"|(?:max-age|report-uri)=|report-to )/,alias:"keyword"},safe:{pattern:/\b\d{7,}\b/,alias:"selector"},unsafe:{pattern:/\b\d{1,6}\b/,alias:"function"}}}}]);
-//# sourceMappingURL=169.c6a18a47.chunk.js.map
